@@ -6,6 +6,16 @@
 >
 > 오늘은 API서버로서의 django로 (데이터를 주는 API서버) 요청이 들어오면 처리를 하는데 json을 던져주고, vue나 react가 처리할 것이다.
 
+* REST API
+  * 행위 - method
+  * 자원 - URL
+  * 표현 - JSON
+* API (Application Programming Interface) : 프로그래밍으로 인터페이스
+  * tv의 인터페이스는 리모컨
+  * Interface : 
+    * GUI(Graphic User Interface): 그래픽으로 유저랑 상호작용하는 인터페이스
+    * CLI(Command Line Interface): 명령어로 유저랑 상호작용하는 인터페이스
+
 * rest framework 설치
 
   ```shell
@@ -44,6 +54,10 @@
       music = models.ForeignKey(Music, on_delete=models.CASCADE)
       content = models.TextField()
   ```
+
+## serializer
+
+
 
 * 편의 위해 superuser 생성 후 admin 사이트에 모델 등록
 
@@ -114,3 +128,45 @@
   * 모델폼 지정할 때와 비슷한 형식
 
   ![index](./images/index.png)
+
+## drf-yasg
+
+* [링크](https://github.com/axnsan12/drf-yasg)
+
+* 설치
+
+  ```shell
+  $ pip install drf_yasg
+  ```
+
+* settings.py 에 `'drf_yasg',`추가
+
+* musics/urls.py
+
+  ```python
+  ...
+  from drf_yasg.views import get_schema_view
+  from drf_yasg import openapi
+  
+  schema_view = get_schema_view(
+     openapi.Info(
+        title="Music API",
+        default_version='v1',
+        description="Music, Artist 정보",
+     ),
+  )
+  
+  urlpatterns = [
+      ...
+      path('redoc/', schema_view.with_ui('redoc'), name='api_docs'),
+      path('swagger/', schema_view.with_ui('swagger'), name='api_swagger'),
+  ]
+  ```
+
+## Restful url pattern
+
+* GET reviews/ 리뷰 목록
+* POST reviews/ 리뷰 등록하기
+* GET reviews/1/ 1번 리뷰 가져오기
+* PUT reviews/1/ 1번 리뷰 수정하기
+* DELETE reviews/1/ 1번 리뷰 삭제하기
