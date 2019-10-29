@@ -1,0 +1,56 @@
+[
+{
+  "model": "musics.artist",
+  "pk": 1,
+  "fields": {
+    "name": "\ubc15\uc7ac\ubc94"
+  }
+},
+{
+  "model": "musics.artist",
+  "pk": 2,
+  "fields": {
+    "name": "sia"
+  }
+},
+{
+  "model": "musics.music",
+  "pk": 1,
+  "fields": {
+    "artist": 1,
+    "title": "\uc88b\uc544"
+  }
+},
+{
+  "model": "musics.music",
+  "pk": 2,
+  "fields": {
+    "artist": 1,
+    "title": "Me Like Yuh"
+  }
+},
+{
+  "model": "musics.music",
+  "pk": 3,
+  "fields": {
+    "artist": 2,
+    "title": "snowman"
+  }
+},
+{
+  "model": "musics.music",
+  "pk": 4,
+  "fields": {
+    "artist": 2,
+    "title": "ho ho ho"
+  }
+},
+{
+  "model": "musics.music",
+  "pk": 5,
+  "fields": {
+    "artist": 1,
+    "title": "Yacht"
+  }
+}
+]
